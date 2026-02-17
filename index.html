@@ -3,30 +3,26 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>SwiftCart</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+    <title>SwiftCart</title>
     <!-- Tailwind -->
     <script src="https://cdn.tailwindcss.com"></script>
 
     <!-- DaisyUI -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" />
-    <!-- font awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
-        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
 </head>
 
 <body class="bg-[#F8FAFC]">
-
-    <!-- Nav -->
     <div class="w-full bg-white border-b">
         <div class="w-10/12 mx-auto flex items-center justify-between py-4">
-
 
             <div onclick="showHome()" class="text-2xl font-bold text-indigo-600 cursor-pointer">
                 SwiftCart
             </div>
+
             <div class="hidden md:flex gap-10 font-medium text-gray-600">
                 <button onclick="showHome()" id="nav-home" class="text-indigo-600">Home</button>
                 <button onclick="showProducts()" id="nav-products">Products</button>
@@ -35,16 +31,15 @@
             </div>
 
             <div class="flex items-center gap-2 text-gray-700">
-                🛒
+                <i class="fa-solid fa-cart-plus"></i>
                 <span id="cart-count" class="font-semibold">0</span>
             </div>
 
         </div>
     </div>
 
-    <!--Hero section-->
-    <section class="relative w-full h-[85vh] bg-cover bg-center flex items-center"
-        style="background-image: url('./banner-image.png');">
+    <section id="hero-section" class="relative w-full h-[85vh] bg-cover bg-center flex items-center"
+        style="background-image: url('./Asset/banner-image.png');">
 
         <div class="absolute inset-0 
       bg-gradient-to-r 
@@ -64,16 +59,16 @@
                 Shop with confidence and style at SwiftCart.
             </p>
 
-            <button class="px-6 py-3 rounded-lg text-white font-medium
-      bg-gradient-to-r from-indigo-600 to-purple-600
-      hover:opacity-90 transition">
+            <button onclick="showProducts()" class="px-6 py-3 rounded-lg text-white font-medium
+        bg-gradient-to-r from-indigo-600 to-purple-600
+        hover:opacity-90 transition">
                 Shop Now
             </button>
 
         </div>
     </section>
 
-    <!--Why Section-->
+
     <section id="why-section" class="py-20 bg-[#F1F5F9]">
         <div class="w-10/12 mx-auto text-center">
             <h2 class="text-3xl font-bold mb-2">Why Choose Us</h2>
@@ -84,7 +79,7 @@
             <div class="grid md:grid-cols-4 gap-8">
 
                 <div class="bg-white p-8 rounded-xl shadow-sm">
-                    <i class="fa-solid fa-truck-fast"></i>
+                    <i class="fa-solid fa-truck-fast text-2xl text-indigo-600"></i>
                     <h3 class="font-semibold mt-4">Fast Delivery</h3>
                     <p class="text-sm text-gray-500 mt-2">
                         Get your orders delivered quickly and efficiently.
@@ -92,7 +87,7 @@
                 </div>
 
                 <div class="bg-white p-8 rounded-xl shadow-sm">
-                    <i class="fa-solid fa-headphones"></i>
+                    <i class="fa-solid fa-headphones text-2xl text-indigo-600"></i>
                     <h3 class="font-semibold mt-4">24/7 Support</h3>
                     <p class="text-sm text-gray-500 mt-2">
                         Our support team is available anytime.
@@ -100,7 +95,7 @@
                 </div>
 
                 <div class="bg-white p-8 rounded-xl shadow-sm">
-                    <i class="fa-solid fa-user-shield"></i>
+                    <i class="fa-solid fa-user-shield text-2xl text-indigo-600"></i>
                     <h3 class="font-semibold mt-4">Secure Payment</h3>
                     <p class="text-sm text-gray-500 mt-2">
                         Experience safe and secure transactions.
@@ -108,7 +103,7 @@
                 </div>
 
                 <div class="bg-white p-8 rounded-xl shadow-sm">
-                    <i class="fa-solid fa-arrow-rotate-left"></i>
+                    <i class="fa-solid fa-arrow-rotate-left text-2xl text-indigo-600"></i>
                     <h3 class="font-semibold mt-4">Easy Returns</h3>
                     <p class="text-sm text-gray-500 mt-2">
                         Return products easily within 30 days.
@@ -119,6 +114,126 @@
         </div>
     </section>
 
+    <section id="trending-section" class="py-20">
+        <div class="w-10/12 mx-auto">
+            <h2 class="text-3xl font-bold mb-10">Trending Now</h2>
+            <div id="trending-container" class="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
+            </div>
+        </div>
+    </section>
+
+    <section id="products-section" class="py-20 hidden">
+        <div class="w-10/12 mx-auto">
+
+            <h2 class="text-3xl font-bold text-center mb-8">
+                Our Products
+            </h2>
+
+            <div id="categories" class="flex flex-wrap justify-center gap-4 mb-12">
+            </div>
+
+            <div id="product-container" class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            </div>
+
+        </div>
+    </section>
+
+    <dialog id="productModal" class="modal">
+        <div class="modal-box max-w-2xl">
+            <h3 id="modal-title" class="font-bold text-lg"></h3>
+            <img id="modal-image" class="w-40 mx-auto my-4">
+            <p id="modal-description" class="text-sm text-gray-600"></p>
+            <p class="font-semibold mt-3">
+                Price: $<span id="modal-price"></span>
+            </p>
+            <p>Rating: ⭐ <span id="modal-rating"></span></p>
+
+            <div class="modal-action">
+                <button onclick="addToCart()" class="btn btn-primary">
+                    Add to Cart
+                </button>
+                <form method="dialog">
+                    <button class="btn">Close</button>
+                </form>
+            </div>
+        </div>
+    </dialog>
+
+
+    <!--Footer-->
+    <footer class="bg-[#1E293B] text-gray-300 pt-16 pb-8">
+
+        <div class="w-10/12 mx-auto">
+
+            <div class="grid md:grid-cols-4 gap-10">
+
+                <div>
+                    <h2 class="text-indigo-400 text-2xl font-bold mb-4">
+                        SwiftCart
+                    </h2>
+                    <p class="text-sm leading-6 text-gray-400">
+                        Your one-stop shop for all your fashion and lifestyle needs.
+                        Quality products, fast delivery, and excellent support.
+                    </p>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 mb-4 uppercase">
+                        Quick Links
+                    </h3>
+                    <ul class="space-y-3 text-sm">
+                        <li>Home</li>
+                        <li>Products</li>
+                        <li>About</li>
+                        <li>Contact</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 mb-4 uppercase">
+                        Support
+                    </h3>
+                    <ul class="space-y-3 text-sm">
+                        <li>FAQ</li>
+                        <li>Shipping</li>
+                        <li>Returns</li>
+                        <li>Privacy Policy</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-sm font-semibold text-gray-400 mb-4 uppercase">
+                        Subscribe to our Newsletter
+                    </h3>
+
+                    <div class="flex">
+                        <input type="email" placeholder="Enter your email"
+                            class="w-full px-4 py-2 rounded-l-md bg-gray-700 text-white text-sm">
+                        <button class="px-5 py-2 rounded-r-md text-white text-sm
+              bg-gradient-to-r from-indigo-600 to-purple-600">
+                            Subscribe
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="border-t border-gray-700 my-10"></div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center text-sm text-gray-400 gap-4">
+                <p>© 2026 SwiftCart, Inc. All rights reserved.</p>
+
+                <div class="flex gap-6 text-lg">
+                    <i class="fa-brands fa-facebook"></i>
+                    <i class="fa-brands fa-twitter"></i>
+                    <i class="fa-brands fa-instagram"></i>
+                    <i class="fa-brands fa-linkedin"></i>
+                    <i class="fa-regular fa-envelope"></i>
+                </div>
+            </div>
+
+        </div>
+    </footer>
 
     <script src="script.js"></script>
 </body>
