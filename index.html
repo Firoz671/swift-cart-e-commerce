@@ -3,30 +3,79 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SwiftCart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- DaisyUI -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.10/dist/full.min.css" rel="stylesheet" />
+    <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
         integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 
-<body>
+<body class="bg-[#F8FAFC]">
 
-    <nav class="flex justify-between items-center w-8/12 mx-auto mt-5">
-        <h3 class="font-bold text-[#533DF6]">SwiftCart</h3>
-        <ul class="flex gap-5">
-            <li>Home</li>
-            <li>Products</li>
-            <li>About</li>
-            <li>Contact</li>
-        </ul>
-        <i class="fa-solid fa-cart-plus"></i>
-    </nav>
+    <!-- Nav -->
+    <div class="w-full bg-white border-b">
+        <div class="w-10/12 mx-auto flex items-center justify-between py-4">
 
 
-    <script src="./script.js"></script>
+            <div class="text-2xl font-bold text-indigo-600 cursor-pointer">
+                SwiftCart
+            </div>
+            <div class="hidden md:flex gap-10 font-medium text-gray-600">
+                <button id="nav-home" class="text-indigo-600">Home</button>
+                <button id="nav-products">Products</button>
+                <button>About</button>
+                <button>Contact</button>
+            </div>
+
+            <div class="flex items-center gap-2 text-gray-700">
+                🛒
+                <span id="cart-count" class="font-semibold">0</span>
+            </div>
+
+        </div>
+    </div>
+
+
+    <section class="relative w-full h-[85vh] bg-cover bg-center flex items-center"
+        style="background-image: url('./banner-image.png');">
+
+        <div class="absolute inset-0 
+      bg-gradient-to-r 
+      from-[#0f172a]/90 
+      via-[#0f172a]/70 
+      to-transparent">
+        </div>
+
+        <div class="relative w-10/12 mx-auto text-white">
+
+            <h1 class="text-5xl md:text-6xl font-bold leading-tight mb-6">
+                Best Collection For You
+            </h1>
+
+            <p class="max-w-xl text-lg text-gray-200 mb-8">
+                Discover the latest trends in fashion, electronics, and more.
+                Shop with confidence and style at SwiftCart.
+            </p>
+
+            <button class="px-6 py-3 rounded-lg text-white font-medium
+      bg-gradient-to-r from-indigo-600 to-purple-600
+      hover:opacity-90 transition">
+                Shop Now
+            </button>
+
+        </div>
+    </section>
+
+
+
+    <script src="script.js"></script>
 </body>
 
 </html>
