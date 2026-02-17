@@ -24,12 +24,12 @@
         <div class="w-10/12 mx-auto flex items-center justify-between py-4">
 
 
-            <div class="text-2xl font-bold text-indigo-600 cursor-pointer">
+            <div onclick="showHome()" class="text-2xl font-bold text-indigo-600 cursor-pointer">
                 SwiftCart
             </div>
             <div class="hidden md:flex gap-10 font-medium text-gray-600">
-                <button id="nav-home" class="text-indigo-600">Home</button>
-                <button id="nav-products">Products</button>
+                <button onclick="showHome()" id="nav-home" class="text-indigo-600">Home</button>
+                <button onclick="showProducts()" id="nav-products">Products</button>
                 <button>About</button>
                 <button>Contact</button>
             </div>
@@ -84,7 +84,7 @@
             <div class="grid md:grid-cols-4 gap-8">
 
                 <div class="bg-white p-8 rounded-xl shadow-sm">
-                    🚚
+                    <i class="fa-solid fa-truck-fast"></i>
                     <h3 class="font-semibold mt-4">Fast Delivery</h3>
                     <p class="text-sm text-gray-500 mt-2">
                         Get your orders delivered quickly and efficiently.
@@ -92,7 +92,7 @@
                 </div>
 
                 <div class="bg-white p-8 rounded-xl shadow-sm">
-                    🎧
+                    <i class="fa-solid fa-headphones"></i>
                     <h3 class="font-semibold mt-4">24/7 Support</h3>
                     <p class="text-sm text-gray-500 mt-2">
                         Our support team is available anytime.
@@ -100,7 +100,7 @@
                 </div>
 
                 <div class="bg-white p-8 rounded-xl shadow-sm">
-                    🔒
+                    <i class="fa-solid fa-user-shield"></i>
                     <h3 class="font-semibold mt-4">Secure Payment</h3>
                     <p class="text-sm text-gray-500 mt-2">
                         Experience safe and secure transactions.
@@ -108,7 +108,7 @@
                 </div>
 
                 <div class="bg-white p-8 rounded-xl shadow-sm">
-                    🔄
+                    <i class="fa-solid fa-arrow-rotate-left"></i>
                     <h3 class="font-semibold mt-4">Easy Returns</h3>
                     <p class="text-sm text-gray-500 mt-2">
                         Return products easily within 30 days.
